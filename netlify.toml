@@ -1,5 +1,5 @@
 [build]
-  publish = "."
+  publish = "site-deploy"
   command = ""
 
 # Fallback to index for any path
