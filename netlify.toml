@@ -1,0 +1,9 @@
+[build]
+  publish = "."
+  command = ""
+
+# Fallback to index for any path
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
