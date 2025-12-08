@@ -1,5 +1,4 @@
-*.mp4 filter=lfs diff=lfs merge=lfs -text
-legend/** filter=lfs diff=lfs merge=lfs -text
-video/* filter=lfs diff=lfs merge=lfs -text
-*.mov filter=lfs diff=lfs merge=lfs -text
 site-deploy/legend/*.gif -filter -diff -merge -text
+site-deploy/assets/*.gif -filter -diff -merge -text
+site-deploy/Icon/*.gif -filter -diff -merge -text
+site-deploy/video/*.mp4 -filter -diff -merge -text
