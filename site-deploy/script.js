@@ -388,53 +388,6 @@ window.addEventListener('load', function() {
         });
     });
     
-    // 添加页面加载动画
-    const loader = document.createElement('div');
-    loader.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        z-index: 9999;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 2rem;
-        font-weight: 700;
-        transition: opacity 0.5s ease;
-    `;
-    
-    // 添加加载动画
-    loader.innerHTML = `
-        <div style="margin-bottom: 2rem; font-size: 3rem; animation: pulse 1.5s ease-in-out infinite;">🎬</div>
-        <div style="animation: fadeInUp 1s ease-out;">创意剪辑学院</div>
-        <div style="font-size: 1rem; margin-top: 1rem; opacity: 0.8; animation: fadeInUp 1s ease-out 0.3s both;">正在加载精彩内容...</div>
-    `;
-    
-    document.body.appendChild(loader);
-    
-    // 添加脉冲动画样式
-    const pulseStyle = document.createElement('style');
-    pulseStyle.textContent = `
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-    `;
-    document.head.appendChild(pulseStyle);
-    
-    // 2秒后淡出加载器
-    setTimeout(() => {
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.remove();
-            pulseStyle.remove();
-        }, 500);
-    }, 1500);
 });
 
 // 错误处理
