@@ -2,4 +2,4 @@
 legend/** filter=lfs diff=lfs merge=lfs -text
 video/* filter=lfs diff=lfs merge=lfs -text
 *.mov filter=lfs diff=lfs merge=lfs -text
-site-deploy/标识/*.gif -filter -diff -merge -text
+site-deploy/legend/*.gif -filter -diff -merge -text
