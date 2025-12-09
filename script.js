@@ -386,7 +386,10 @@ window.addEventListener('load', function() {
     }
     addFallback('.sixty-days-gif', 'site-deploy/assets/12月3日.gif');
     addFallback('.inside-gif', 'site-deploy/Icon/1 (1).gif');
-    addFallback('.legend-item', 'site-deploy/legend/gif_22.gif');
+          addFallback('.legend-item', 'site-deploy/legend/gif_22.gif');
+          Array.prototype.slice.call(document.querySelectorAll('.legend-item')).forEach(function(img){
+              try { img.setAttribute('fetchpriority', 'low'); img.decoding = 'async'; img.loading = 'lazy'; } catch(e){}
+          });
     addFallback('.brand-logo-img', 'site-deploy/logo/左上角_00000.png');
 });
 

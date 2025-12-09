@@ -386,7 +386,10 @@ window.addEventListener('load', function() {
     }
     addFallback('.sixty-days-gif', 'assets/12月3日.gif');
     addFallback('.inside-gif', 'Icon/1 (1).gif');
-    addFallback('.legend-item', 'legend/gif_22.gif');
+          addFallback('.legend-item', 'legend/gif_22.gif');
+          Array.prototype.slice.call(document.querySelectorAll('.legend-item')).forEach(function(img){
+              try { img.setAttribute('fetchpriority', 'low'); img.decoding = 'async'; img.loading = 'lazy'; } catch(e){}
+          });
     addFallback('.brand-logo-img', '../logo/左上角_00000.png');
 });
 

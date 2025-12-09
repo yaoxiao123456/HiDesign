@@ -246,6 +246,8 @@ body {
   .nav-menu.active a { color: #fff; font-size: 1.125rem; line-height: 1; padding: 12px 4px; }
   .nav-open .btn-waitlist { display: none; }
   .btn-waitlist { height: 32px; padding: 0 0.6rem; font-size: 0.9rem; }
+  .mobile-menu-cta { display: none; }
+  .nav-menu.active + .mobile-menu-cta { display: block; position: fixed; left: 16px; right: 16px; bottom: 24px; z-index: 2001; background: #fff; color: #000; border: 2px solid #000; border-radius: 999px; text-align: center; font-weight: 800; padding: 14px 16px; }
 }
 
 .navbar.scrolled .nav-menu a {
@@ -677,7 +679,7 @@ body {
 /* 横向滚动跑马灯 */
 .legend .container { padding: 0; }
 .legend-marquee { overflow: hidden; border-radius: 0; box-shadow: none; border: none; }
- .legend-track { display: flex; gap: 24px; padding: 0; width: max-content; align-items: flex-end; animation: legend-scroll 120s linear infinite; }
+ .legend-track { display: flex; gap: 24px; padding: 0; width: max-content; align-items: flex-end; animation: legend-scroll 120s linear infinite; will-change: transform; }
  .legend-item { height: 396px; border-radius: 12px; flex: 0 0 auto; display: block; object-fit: cover; }
  .legend-item.video-unsupported { background: #111; }
 @keyframes legend-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -1383,7 +1385,7 @@ body {
   .legend-header { padding: 0 16px; text-align: center; }
   .legend-title { font-size: 1.75rem; }
   .legend-description { font-size: 1rem; }
-  .legend-track .legend-item { max-height: 72px; margin-right: 8px; }
+  .legend-track .legend-item { max-height: 140px; margin-right: 8px; }
 
   .inside-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
   .inside-item { display: grid; grid-template-columns: 64px 1fr; align-items: center; gap: 12px; }
@@ -1401,7 +1403,7 @@ body {
   .hero-title { font-size: 1.9rem; }
   .inside-item { grid-template-columns: 56px 1fr; }
   .inside-gif { width: 56px; height: 56px; }
-  .legend-track .legend-item { max-height: 64px; }
+  .legend-track .legend-item { max-height: 100px; }
 }
 .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #000; color: #fff; border: none; width: 36px; height: 36px; border-radius: 999px; cursor: pointer; }
 .carousel-btn.prev { left: 0; }
