@@ -160,7 +160,7 @@ body {
 }
 .nav-menu.nav-pill {
     justify-self: center;
-    background: transparent;
+    background: #000;
     color: #fff;
     padding: 0 0.75rem;
     border-radius: 999px;
@@ -168,16 +168,6 @@ body {
     box-shadow: none;
     display: inline-flex;
     white-space: nowrap;
-    overflow: hidden;
-}
-.nav-menu.nav-pill::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 999px;
-    background: url('site-deploy/avatar/背景.jpg') center/cover no-repeat;
-    opacity: 0.92;
-    z-index: 0;
 }
 .nav-menu.nav-pill li a { color: #fff; font-weight: 500; line-height: 36px; padding: 0 0.6rem; }
 .nav-menu.nav-pill li a:hover { color: #d40124; }
@@ -198,7 +188,7 @@ body {
     white-space: nowrap; /* 不换行 */
 }
 
-.navbar.scrolled .nav-menu.nav-pill { background: transparent; border-color: #fff; }
+.navbar.scrolled .nav-menu.nav-pill { background: #000; border-color: #fff; }
 .navbar.scrolled .nav-menu.nav-pill li a { color: #fff; }
 .navbar.scrolled .btn-waitlist { background: #fff; border-color: #000; color: #000; }
 .nav-logo h1 {
