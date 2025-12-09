@@ -370,7 +370,7 @@ window.addEventListener('load', function() {
             img.addEventListener('error', function(){
                 if (!img.dataset.fallbackApplied) {
                     img.dataset.fallbackApplied = '1';
-                    img.src = fallback;
+                    img.src = encodeURI(fallback);
                 }
             });
         });
@@ -378,6 +378,7 @@ window.addEventListener('load', function() {
     addFallback('.sixty-days-gif', 'site-deploy/assets/12月3日.gif');
     addFallback('.inside-gif', 'site-deploy/Icon/1 (1).gif');
     addFallback('.legend-item', 'site-deploy/legend/gif_22.gif');
+    addFallback('.brand-logo-img', 'site-deploy/logo/左上角_00000.png');
 });
 
 (function(){
@@ -395,7 +396,7 @@ window.addEventListener('load', function() {
             var matchTxt = txt.indexOf('正在加载精彩内容') !== -1 || txt.indexOf('创意剪辑学院') !== -1;
             var matchIdc = /loader|loading|splash/i.test(idc);
             var matchBg = bg.indexOf('#667eea') !== -1 || bg.indexOf('#764ba2') !== -1 || bg.indexOf('linear-gradient') !== -1 && bg.indexOf('667eea') !== -1;
-            if (cs.position === 'fixed' && (zi >= 999 || full || matchTxt || matchIdc || matchBg)) {
+            if (cs.position === 'fixed' && (full || matchTxt || matchIdc || matchBg)) {
                 el.remove();
             }
         });
