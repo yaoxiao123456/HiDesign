@@ -22,7 +22,7 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
     --logo-height: 600px;
-    --logo-offset-y: -200px;
+    --logo-offset-y: 0px;
     --accent-cta: #9b63ff;
 }
 
@@ -131,11 +131,11 @@ body {
 .nav-brand { position: absolute; top: var(--logo-offset-y); left: 0; transform: none; z-index: 1000; height: auto; }
 
 @media (max-width: 768px) {
-  :root { --logo-offset-y: -80px; }
+  :root { --logo-offset-y: 0px; }
 }
 
 @media (max-width: 480px) {
-  :root { --logo-offset-y: -48px; }
+  :root { --logo-offset-y: 0px; }
 }
 
 @media (max-width: 768px) {
@@ -156,7 +156,7 @@ body {
 /* 胶囊始终居中显示，并在窄屏时隐藏（容器正中，水平垂直居中） */
 .nav-menu.nav-pill { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.82); height: 36px; display: flex; align-items: center; white-space: nowrap; }
 @media (max-width: 992px) {
-  .nav-menu.nav-pill { display: none; }
+  .nav-menu.nav-pill { display: inline-flex; }
 }
 .nav-menu.nav-pill {
     justify-self: center; /* 使用网格居中避免重叠 */

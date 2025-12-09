@@ -321,15 +321,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 响应式导航菜单
     function updateMenuForMobile() {
-        if (window.innerWidth <= 768) {
-            navMenu.style.display = 'none';
-            hamburger.style.display = 'flex';
-        } else {
-            navMenu.style.display = 'flex';
-            hamburger.style.display = 'none';
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-        }
+        navMenu.style.display = 'flex';
+        hamburger.style.display = 'none';
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
     }
     
     window.addEventListener('resize', updateMenuForMobile);
@@ -339,24 +334,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const style = document.createElement('style');
     style.textContent = `
         @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 80px;
-                flex-direction: column;
-                background-color: #000;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 2rem 0;
-                gap: 1rem;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
             .hamburger.active span:nth-child(2) {
                 opacity: 0;
             }
@@ -387,6 +364,20 @@ window.addEventListener('load', function() {
             }
         });
     });
+    // 关键板块图片回退，保证显示
+    function addFallback(selector, fallback){
+        document.querySelectorAll(selector).forEach(function(img){
+            img.addEventListener('error', function(){
+                if (!img.dataset.fallbackApplied) {
+                    img.dataset.fallbackApplied = '1';
+                    img.src = fallback;
+                }
+            });
+        });
+    }
+    addFallback('.sixty-days-gif', 'assets/12月3日.gif');
+    addFallback('.inside-gif', 'Icon/1 (1).gif');
+    addFallback('.legend-item', 'legend/gif_22.gif');
 });
 
 (function(){
