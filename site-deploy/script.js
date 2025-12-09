@@ -387,8 +387,52 @@ window.addEventListener('load', function() {
             }
         });
     });
-    
 });
+
+(function(){
+    function removeSplash(){
+        var all = Array.prototype.slice.call(document.querySelectorAll('*'));
+        all.forEach(function(el){
+            var cs = window.getComputedStyle(el);
+            var zi = parseInt(cs.zIndex || '0', 10);
+            var txt = (el.textContent || '').trim();
+            var idc = (el.id || '') + ' ' + (el.className || '');
+            var bg = (cs.backgroundImage || cs.background || '').toLowerCase();
+            var w = parseFloat(cs.width) || 0;
+            var h = parseFloat(cs.height) || 0;
+            var full = (cs.left === '0px' && cs.top === '0px' && (cs.width === '100%' || w >= window.innerWidth - 1) && (cs.height === '100%' || h >= window.innerHeight - 1));
+            var matchTxt = txt.indexOf('正在加载精彩内容') !== -1 || txt.indexOf('创意剪辑学院') !== -1;
+            var matchIdc = /loader|loading|splash/i.test(idc);
+            var matchBg = bg.indexOf('#667eea') !== -1 || bg.indexOf('#764ba2') !== -1 || bg.indexOf('linear-gradient') !== -1 && bg.indexOf('667eea') !== -1;
+            if (cs.position === 'fixed' && (zi >= 999 || full || matchTxt || matchIdc || matchBg)) {
+                el.remove();
+            }
+        });
+        Array.prototype.slice.call(document.querySelectorAll('style')).forEach(function(s){
+            var content = s.textContent || '';
+            if (content.indexOf('@keyframes pulse') !== -1 || content.toLowerCase().indexOf('667eea') !== -1 && content.toLowerCase().indexOf('764ba2') !== -1) {
+                s.remove();
+            }
+        });
+    }
+    function bind(){
+        document.addEventListener('click', removeSplash, true);
+        Array.prototype.slice.call(document.querySelectorAll('video')).forEach(function(v){
+            v.addEventListener('play', removeSplash);
+            v.addEventListener('pause', removeSplash);
+        });
+        var mo = new MutationObserver(function(){ removeSplash(); });
+        mo.observe(document.documentElement, { childList: true, subtree: true });
+        var tries = 0;
+        var t = setInterval(function(){ removeSplash(); if (++tries > 30) clearInterval(t); }, 150);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function(){ removeSplash(); bind(); });
+    } else {
+        removeSplash();
+        bind();
+    }
+})();
 
 // 错误处理
 window.addEventListener('error', function(e) {
