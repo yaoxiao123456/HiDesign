@@ -156,7 +156,7 @@ body {
 /* 胶囊始终居中显示，并在窄屏时隐藏（容器正中，水平垂直居中） */
 .nav-menu.nav-pill { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.82); height: 36px; display: flex; align-items: center; white-space: nowrap; }
 @media (max-width: 992px) {
-  .nav-menu.nav-pill { display: inline-flex; }
+  .nav-menu.nav-pill { display: none; }
 }
 .nav-menu.nav-pill {
     justify-self: center;
@@ -238,6 +238,14 @@ body {
 /* 大屏幕隐藏汉堡按钮，避免占位导致换行 */
 @media (min-width: 992px) {
     .hamburger { display: none; }
+}
+
+@media (max-width: 992px) {
+  .hamburger { display: inline-flex; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); z-index: 1002; }
+  .nav-menu.active { display: flex; flex-direction: column; position: fixed; inset: 0; padding: 24px; gap: 16px; background: #000; z-index: 2000; }
+  .nav-menu.active a { color: #fff; font-size: 1.125rem; line-height: 1; padding: 12px 4px; }
+  .nav-open .btn-waitlist { display: none; }
+  .btn-waitlist { height: 32px; padding: 0 0.6rem; font-size: 0.9rem; }
 }
 
 .navbar.scrolled .nav-menu a {

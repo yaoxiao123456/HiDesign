@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.classList.toggle('nav-open');
     });
     
     // 平滑滚动到锚点
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
                     hamburger.classList.remove('active');
+                    document.body.classList.remove('nav-open');
                 }
             }
         });
@@ -321,10 +323,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 响应式导航菜单
     function updateMenuForMobile() {
-        navMenu.style.display = 'flex';
-        hamburger.style.display = 'none';
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+        const isMobile = window.innerWidth <= 992;
+        if (isMobile) {
+            navMenu.style.display = 'none';
+            hamburger.style.display = 'flex';
+        } else {
+            navMenu.style.display = 'flex';
+            hamburger.style.display = 'none';
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('nav-open');
+        }
     }
     
     window.addEventListener('resize', updateMenuForMobile);
