@@ -21,7 +21,7 @@
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
-    --logo-height: 600px;
+    --logo-height: 72px;
     --logo-offset-y: 0px;
     --accent-cta: #9b63ff;
 }
@@ -121,7 +121,7 @@ body {
     display: flex; /* 一行展示 */
     align-items: center;
     gap: 1rem;
-    height: 168px;
+    height: 100px;
     flex-wrap: nowrap; /* 不换行 */
     position: relative; /* 供胶囊绝对居中 */
 }
