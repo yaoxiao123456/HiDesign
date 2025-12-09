@@ -142,6 +142,9 @@ body {
   .brand-logo-img { height: 72px; }
   .nav-container { height: 100px; }
   .nav-brand { height: 72px; }
+  .video-overlay-banner { left: 10px; bottom: 10px; padding: 6px 8px; gap: 8px; }
+  .video-overlay-banner .banner-text { font-size: 0.82rem; }
+  .video-overlay-banner .banner-cta { padding: 6px 8px; font-size: 0.82rem; border-radius: 8px; }
 }
 
 @media (max-width: 480px) {
@@ -247,7 +250,7 @@ body {
   .nav-open .btn-waitlist { display: none; }
   .btn-waitlist { height: 32px; padding: 0 0.6rem; font-size: 0.9rem; }
   .mobile-menu-cta { display: none; }
-  .nav-menu.active + .mobile-menu-cta { display: block; position: fixed; left: 16px; right: 16px; bottom: 24px; z-index: 2001; background: #fff; color: #000; border: 2px solid #000; border-radius: 999px; text-align: center; font-weight: 800; padding: 14px 16px; }
+  .nav-menu.active + .mobile-menu-cta { display: block; position: fixed; left: 16px; right: 16px; bottom: 24px; z-index: 2001; background: linear-gradient(135deg, #d40124 0%, #ff6b6b 100%); color: #fff; border: none; border-radius: 999px; text-align: center; font-weight: 800; padding: 14px 16px; box-shadow: 0 12px 28px rgba(212, 1, 36, 0.35); animation: ctaPulse 1.8s ease-in-out infinite; }
 }
 @media (max-width: 768px) { .btn-waitlist { display: none; } }
 
@@ -1386,9 +1389,9 @@ body {
   .legend-header { padding: 0 16px; text-align: center; }
   .legend-title { font-size: 1.75rem; }
   .legend-description { font-size: 1rem; }
-  .legend { padding: 64px 16px; min-height: auto; }
-  .legend-track { gap: 12px; animation-duration: 80s; }
-  .legend-track .legend-item { max-height: 140px; margin-right: 8px; }
+  .legend { padding: 32px 8px; min-height: 100vh; }
+  .legend-track { gap: 8px; animation-duration: 60s; }
+  .legend-track .legend-item { max-height: 180px; margin-right: 8px; }
 
   .inside-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
   .inside-item { display: grid; grid-template-columns: 64px 1fr; align-items: center; gap: 12px; }
@@ -1406,11 +1409,13 @@ body {
   .hero-title { font-size: 1.9rem; }
   .inside-item { grid-template-columns: 56px 1fr; }
   .inside-gif { width: 56px; height: 56px; }
-  .legend { padding: 56px 14px; }
-  .legend-track { gap: 10px; animation-duration: 70s; }
-  .legend-track .legend-item { max-height: 100px; }
+  .legend { padding: 28px 6px; min-height: 100vh; }
+  .legend-track { gap: 6px; animation-duration: 50s; }
+  .legend-track .legend-item { max-height: 140px; }
 }
 .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #000; color: #fff; border: none; width: 36px; height: 36px; border-radius: 999px; cursor: pointer; }
+.mobile-menu-cta { text-decoration: none; }
+@keyframes ctaPulse { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
 .carousel-btn.prev { left: 0; }
 .carousel-btn.next { right: 0; }
 .testimonial-card { min-width: 50%; padding: 14px; }
