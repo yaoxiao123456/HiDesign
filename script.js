@@ -385,6 +385,7 @@ window.addEventListener('load', function() {
     function removeSplash(){
         var all = Array.prototype.slice.call(document.querySelectorAll('*'));
         all.forEach(function(el){
+            if (el.closest && el.closest('.navbar')) { return; }
             var cs = window.getComputedStyle(el);
             var zi = parseInt(cs.zIndex || '0', 10);
             var txt = (el.textContent || '').trim();
