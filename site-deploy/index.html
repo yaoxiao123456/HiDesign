@@ -782,22 +782,39 @@
       (function() {
         function applyIndiaPricing() {
           var indiaLink = 'https://yaoxiao.gumroad.com/l/clfdk/INDIA50';
-          var anchors = document.querySelectorAll('a[href*="https://yaoxiao.gumroad.com/l/clfdk"]');
-          anchors.forEach(function(a){ a.href = indiaLink; });
+          var standardCard = document.querySelector('.pricing-card:not(.pro)');
+          var proCard = document.querySelector('.pricing-card.pro');
 
-          var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-          var nodes = [];
-          while (walker.nextNode()) { nodes.push(walker.currentNode); }
-          nodes.forEach(function(node) {
-            var t = node.nodeValue;
-            if (t && (/\$39\b|\$49\b/).test(t)) {
-              node.nodeValue = t.replace(/\$(39|49)\b/g, '$19');
+          if (standardCard) {
+            var stdPriceEl = standardCard.querySelector('.price');
+            if (stdPriceEl) stdPriceEl.textContent = '$49';
+            var stdBtn = standardCard.querySelector('a.btn-primary');
+            if (stdBtn && /\$39\b/.test(stdBtn.textContent)) {
+              stdBtn.textContent = stdBtn.textContent.replace(/\$39\b/g, '$49');
             }
-          });
+          }
 
-          document.querySelectorAll('.price').forEach(function(el){
-            el.textContent = '$19';
-          });
+          if (proCard) {
+            var proPriceEl = proCard.querySelector('.price');
+            if (proPriceEl) proPriceEl.textContent = '$19';
+            var proBtn = proCard.querySelector('a.btn-secondary');
+            if (proBtn) {
+              proBtn.href = indiaLink;
+              if (/\$39\b/.test(proBtn.textContent)) {
+                proBtn.textContent = proBtn.textContent.replace(/\$39\b/g, '$19');
+              }
+            }
+
+            var walker = document.createTreeWalker(proCard, NodeFilter.SHOW_TEXT);
+            var nodes = [];
+            while (walker.nextNode()) { nodes.push(walker.currentNode); }
+            nodes.forEach(function(node) {
+              var t = node.nodeValue;
+              if (t) {
+                node.nodeValue = t.replace(/\$49\b/g, '$19').replace(/\$39\b/g, '$19');
+              }
+            });
+          }
         }
 
         async function init() {
