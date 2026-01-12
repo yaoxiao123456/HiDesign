@@ -1436,6 +1436,8 @@ body {
 .price-box { margin-bottom: 16px; }
 .price { font-size: 2rem; font-weight: 800; }
 .price-old { text-decoration: line-through; color: #9ca3af; margin-left: 8px; }
+.price-badge { display: inline-block; margin-left: 8px; background: #facc15; color: #111; font-weight: 800; font-size: 12px; padding: 4px 8px; border-radius: 999px; box-shadow: 0 4px 12px rgba(250, 204, 21, 0.35); animation: badgeBlink 1.6s ease-in-out infinite; }
+@keyframes badgeBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.65; } }
 .price-note { color: #16a34a; font-weight: 600; }
 .price-save { color: #16a34a; font-weight: 800; }
 .pricing-features { margin: 16px 0 24px; color: #374151; }

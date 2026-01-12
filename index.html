@@ -257,10 +257,10 @@
                     <h3>Standard Course</h3>
                     <p class="pricing-sub">Master Graphic Visual Design in 30 Days</p>
                     <div class="price-box">
-                        <span class="price">$39</span>
-                        <span class="price-old">$99</span>
+                        <span class="price">$49</span>
+                        <span class="price-old">$149</span>
                         <p class="price-note">Limited Time Offer</p>
-                        <p class="price-save">Save $60</p>
+                        <p class="price-save">Save $100</p>
                     </div>
                     <ul class="pricing-features">
                         <li>• 18 full design lessons</li>
@@ -270,8 +270,9 @@
                         <li>• Brand Design Basics (2 lessons)</li>
                         <li>• Course materials + project files</li>
                         <li>• Lifetime access on Gumroad</li>
+                        <li>• Exclusive Designer VIP Community Access</li>
                     </ul>
-                    <a href="https://yaoxiao.gumroad.com/l/clfdk?utm_source=site&utm_medium=cta&utm_campaign=visual-design-30d&utm_content=pricing_standard" class="btn-primary btn-full">Enroll Now — $39</a>
+                    <a href="https://yaoxiao.gumroad.com/l/clfdk?utm_source=site&utm_medium=cta&utm_campaign=visual-design-30d&utm_content=pricing_standard" class="btn-primary btn-full">Enroll Now — $49</a>
                 </div>
                 <div class="pricing-card pro">
                     <span class="best-badge">Best Value</span>
@@ -282,8 +283,10 @@
                         <span class="price-old">$99</span>
                         <p class="price-note">Limited Time + Bonus Pack Included</p>
                         <p class="price-save">Save $60</p>
+                        <span class="price-badge">Best Seller</span>
                     </div>
                     <ul class="pricing-features">
+                        <li><strong>🔥 EVERYTHING IN STANDARD +</strong></li>
                         <li>• All Standard Course content</li>
                         <li>• Exclusive Designer Font Pack</li>
                         <li>• Editable Layout Templates</li>
@@ -787,13 +790,13 @@
           while (walker.nextNode()) { nodes.push(walker.currentNode); }
           nodes.forEach(function(node) {
             var t = node.nodeValue;
-            if (t && t.indexOf('$39') !== -1) {
-              node.nodeValue = t.replace(/\$39\b/g, '$19');
+            if (t && (/\$39\b|\$49\b/).test(t)) {
+              node.nodeValue = t.replace(/\$(39|49)\b/g, '$19');
             }
           });
 
           document.querySelectorAll('.price').forEach(function(el){
-            if (el.textContent.trim() === '$39') { el.textContent = '$19'; }
+            el.textContent = '$19';
           });
         }
 
