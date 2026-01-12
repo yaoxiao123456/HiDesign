@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Clips Academy - Become a Professional Visual Designer</title>
     <meta name="description" content="Become a signature designer in 30 days. Learn brand design techniques, access career opportunities, work on real client projects, and charge premium rates for your expertise.">
-    <link rel="stylesheet" href="styles.css?v=20251218">
+    <link rel="stylesheet" href="styles.css?v=20251219">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -775,5 +775,47 @@
     </footer>
 
     <script src="script.js?v=20251210"></script>
+    <script>
+      (function() {
+        function applyIndiaPricing() {
+          var indiaLink = 'https://yaoxiao.gumroad.com/l/clfdk/INDIA50';
+          var anchors = document.querySelectorAll('a[href*="https://yaoxiao.gumroad.com/l/clfdk"]');
+          anchors.forEach(function(a){ a.href = indiaLink; });
+
+          var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+          var nodes = [];
+          while (walker.nextNode()) { nodes.push(walker.currentNode); }
+          nodes.forEach(function(node) {
+            var t = node.nodeValue;
+            if (t && t.indexOf('$39') !== -1) {
+              node.nodeValue = t.replace(/\$39\b/g, '$19');
+            }
+          });
+
+          document.querySelectorAll('.price').forEach(function(el){
+            if (el.textContent.trim() === '$39') { el.textContent = '$19'; }
+          });
+        }
+
+        async function init() {
+          try {
+            var res = await fetch('https://ipapi.co/json/');
+            if (!res.ok) throw new Error('geo failed');
+            var data = await res.json();
+            var countryCode = data && data.country_code ? String(data.country_code).toUpperCase() : '';
+            var isIndia = countryCode === 'IN'; // 测试提示：将 'IN' 改为 'CN'，可在国内预览降价效果
+            if (isIndia) applyIndiaPricing();
+          } catch (e) {
+            // 请求失败则保持原价与原链接
+          }
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init);
+        } else {
+          init();
+        }
+      })();
+    </script>
 </body>
 </html>

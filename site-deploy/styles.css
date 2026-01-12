@@ -1390,8 +1390,8 @@ body {
   .legend-title { font-size: 1.75rem; }
   .legend-description { font-size: 1rem; }
   .legend { padding: 32px 8px; min-height: 100vh; }
-  .legend-track { gap: 4px; animation-duration: 48s; }
-  .legend-track .legend-item { max-height: 200px; margin-right: 8px; }
+  .legend-track { gap: 2px; animation-duration: 42s; }
+  .legend-track .legend-item { max-height: 220px; margin-right: 8px; }
 
   .inside-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .inside-item { display: grid; grid-template-columns: 64px 1fr; align-items: center; gap: 12px; }
@@ -1410,8 +1410,8 @@ body {
   .inside-item { grid-template-columns: 56px 1fr; }
   .inside-gif { width: 56px; height: 56px; }
   .legend { padding: 28px 6px; min-height: 100vh; }
-  .legend-track { gap: 4px; animation-duration: 45s; }
-  .legend-track .legend-item { max-height: 160px; }
+  .legend-track { gap: 2px; animation-duration: 40s; }
+  .legend-track .legend-item { max-height: 180px; }
 }
 .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #000; color: #fff; border: none; width: 36px; height: 36px; border-radius: 999px; cursor: pointer; }
 .mobile-menu-cta { text-decoration: none; }
@@ -1427,6 +1427,7 @@ body {
 .pricing { padding: 80px 36px; background: #fff; }
 .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
 @media (min-width: 768px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
 .pricing-card { border: 1px solid #e5e7eb; border-radius: 16px; padding: 32px; box-shadow: var(--shadow-sm); }
 .pricing-card.pro { background: #000; color: #fff; position: relative; box-shadow: var(--shadow-md); }
 .best-badge { position: absolute; top: 16px; right: 16px; background: #d40124; color: #fff; font-size: 12px; padding: 6px 12px; border-radius: 999px; }
@@ -1459,7 +1460,7 @@ body {
 .inside-text h3 { font-size: 1.05rem; font-weight: 800; color: var(--text-primary); }
 .inside-text p { font-size: 0.95rem; color: var(--text-secondary); }
 @media (max-width: 1024px) { .inside-grid { grid-template-columns: repeat(2, minmax(240px, 1fr)); } }
-@media (max-width: 768px) { .inside-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .inside-grid { grid-template-columns: 1fr 1fr; } }
 
 .inside-icon.anim-pulse { animation: pulseGlow 2s ease-in-out infinite; }
 .inside-icon.anim-spin { animation: spinSlow 6s linear infinite; }
