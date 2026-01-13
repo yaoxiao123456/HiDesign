@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?"&l="+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TGG4RP5H');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Clips Academy - Become a Professional Visual Designer</title>
@@ -15,6 +16,7 @@
     <script>document.documentElement.classList.add('geo-init');</script>
 </head>
 <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGG4RP5H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -853,6 +855,18 @@
         } else {
           init();
         }
+      })();
+      (function(){
+        function onClick(e){
+          var a = e.target && e.target.closest ? e.target.closest('a') : null;
+          if (!a) return;
+          var href = a.href || '';
+          if (/gumroad\.com/.test(href)) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({event:'purchase_click', plan:'pro_19_or_49'});
+          }
+        }
+        document.addEventListener('click', onClick, true);
       })();
     </script>
 </body>
