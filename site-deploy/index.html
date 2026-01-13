@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?"&l="+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TGG4RP5H');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDWCRVL4FZ"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-KDWCRVL4FZ');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Clips Academy - Become a Professional Visual Designer</title>
@@ -864,6 +866,7 @@
           if (/gumroad\.com/.test(href)) {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({event:'purchase_click', plan:'pro_19_or_49'});
+            if (typeof gtag === 'function') { gtag('event','purchase_click', {plan:'pro_19_or_49'}); }
           }
         }
         document.addEventListener('click', onClick, true);
