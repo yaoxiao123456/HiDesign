@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>.geo-init .price, .geo-init .cta-primary, .geo-init .btn, .geo-init a[href*="gumroad.com/l/clfdk"] { visibility: hidden; }</style>
+    <script>document.documentElement.classList.add('geo-init');</script>
 </head>
 <body>
     <!-- Navigation -->
@@ -784,6 +786,11 @@
           var indiaLink = 'https://yaoxiao.gumroad.com/l/clfdk/INDIA50';
           var standardCard = document.querySelector('.pricing-card:not(.pro)');
           var proCard = document.querySelector('.pricing-card.pro');
+          function inStandard(node) {
+            var p = node.parentNode;
+            while (p && p.nodeType === 1) { if (standardCard && p === standardCard) return true; p = p.parentNode; }
+            return false;
+          }
 
           if (standardCard) {
             var stdPriceEl = standardCard.querySelector('.price');
@@ -807,15 +814,14 @@
           }
 
           var anchors = Array.prototype.slice.call(document.querySelectorAll('a[href*="yaoxiao.gumroad.com/l/clfdk"]'));
-          anchors.forEach(function(a) {
-            if (standardCard && standardCard.contains(a)) return;
-            a.href = indiaLink;
-          });
+          anchors.forEach(function(a) { if (!(standardCard && standardCard.contains(a))) a.href = indiaLink; });
 
-          var waitlistAnchors = Array.prototype.slice.call(document.querySelectorAll('a'));
-          waitlistAnchors.forEach(function(a){
+          Array.prototype.slice.call(document.querySelectorAll('a[href*="yaoxiao.gumroad.com"], a')).forEach(function(a){
             var txt = (a.textContent || '').toLowerCase();
-            if (txt.indexOf('waitlist') !== -1) { a.href = indiaLink; }
+            if ((/waitlist/.test(txt) || a.href.indexOf('yaoxiao.gumroad.com') !== -1) && !(standardCard && standardCard.contains(a))) {
+              a.href = indiaLink;
+              if (/waitlist/.test(txt)) a.textContent = 'Enroll Now — $19';
+            }
           });
 
           var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -823,9 +829,7 @@
           while (walker.nextNode()) { nodes.push(walker.currentNode); }
           nodes.forEach(function(node) {
             var t = node.nodeValue;
-            if (t && /\$39\b/.test(t)) {
-              node.nodeValue = t.replace(/\$39\b/g, '$19');
-            }
+            if (t && /\$39\b/.test(t) && !inStandard(node)) node.nodeValue = t.replace(/\$39\b/g, '$19');
           });
         }
 
@@ -840,6 +844,7 @@
           } catch (e) {
             // 请求失败则保持原价与原链接
           }
+          document.documentElement.classList.remove('geo-init');
         }
 
         if (document.readyState === 'loading') {
