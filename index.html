@@ -804,17 +804,29 @@
                 proBtn.textContent = proBtn.textContent.replace(/\$39\b/g, '$19');
               }
             }
-
-            var walker = document.createTreeWalker(proCard, NodeFilter.SHOW_TEXT);
-            var nodes = [];
-            while (walker.nextNode()) { nodes.push(walker.currentNode); }
-            nodes.forEach(function(node) {
-              var t = node.nodeValue;
-              if (t) {
-                node.nodeValue = t.replace(/\$49\b/g, '$19').replace(/\$39\b/g, '$19');
-              }
-            });
           }
+
+          var anchors = Array.prototype.slice.call(document.querySelectorAll('a[href*="yaoxiao.gumroad.com/l/clfdk"]'));
+          anchors.forEach(function(a) {
+            if (standardCard && standardCard.contains(a)) return;
+            a.href = indiaLink;
+          });
+
+          var waitlistAnchors = Array.prototype.slice.call(document.querySelectorAll('a'));
+          waitlistAnchors.forEach(function(a){
+            var txt = (a.textContent || '').toLowerCase();
+            if (txt.indexOf('waitlist') !== -1) { a.href = indiaLink; }
+          });
+
+          var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+          var nodes = [];
+          while (walker.nextNode()) { nodes.push(walker.currentNode); }
+          nodes.forEach(function(node) {
+            var t = node.nodeValue;
+            if (t && /\$39\b/.test(t)) {
+              node.nodeValue = t.replace(/\$39\b/g, '$19');
+            }
+          });
         }
 
         async function init() {
