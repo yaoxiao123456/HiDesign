@@ -839,7 +839,8 @@
             if (!res.ok) throw new Error('geo failed');
             var data = await res.json();
             var countryCode = data && data.country_code ? String(data.country_code).toUpperCase() : '';
-            var isIndia = countryCode === 'IN'; // 测试提示：将 'IN' 改为 'CN'，可在国内预览降价效果
+            var params = new URLSearchParams(location.search);
+            var isIndia = countryCode === 'IN' || params.get('force_in') === '1';
             if (isIndia) applyIndiaPricing();
           } catch (e) {
             // 请求失败则保持原价与原链接
