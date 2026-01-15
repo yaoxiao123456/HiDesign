@@ -638,10 +638,6 @@ body {
     font-size: 2rem;
     line-height: 1.2;
     font-weight: 800;
-    @media (max-width: 768px) {
-    font-size: 1.5rem;
-    line-height: 1.25;
-    }
     font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
     letter-spacing: 0.02em;
     text-transform: uppercase;
@@ -1125,8 +1121,12 @@ body {
         font-size: 0.8rem;
     }
     
+    .stop-copying-bar {
+        min-height: auto;
+        padding: 2.5rem 0;
+    }
     .stop-copying-text {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         padding: 0 1rem;
     }
     
@@ -1180,6 +1180,7 @@ body {
         grid-template-columns: 1fr;
         text-align: center;
     }
+    .footer-actions { justify-content: center; }
 }
 
 @media (max-width: 480px) {
@@ -1427,7 +1428,7 @@ body {
 .pricing { padding: 80px 36px; background: #fff; }
 .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
 @media (min-width: 768px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
 .pricing-card { border: 1px solid #e5e7eb; border-radius: 16px; padding: 32px; box-shadow: var(--shadow-sm); }
 .pricing-card.pro { background: #000; color: #fff; position: relative; box-shadow: var(--shadow-md); }
 .best-badge { position: absolute; top: 16px; right: 16px; background: #d40124; color: #fff; font-size: 12px; padding: 6px 12px; border-radius: 999px; }

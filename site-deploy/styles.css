@@ -1180,6 +1180,7 @@ body {
         grid-template-columns: 1fr;
         text-align: center;
     }
+    .footer-actions { justify-content: center; }
 }
 
 @media (max-width: 480px) {
