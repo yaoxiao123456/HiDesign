@@ -302,9 +302,53 @@ body {
     background: #ffffff;
 }
 
+.promo-banner {
+    position: relative;
+    z-index: 1000;
+    margin: 100px 16px 8px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #ffe066 0%, #ff6b6b 100%);
+    color: #ffffff;
+    border-radius: 16px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.25), 0 6px 16px rgba(0,0,0,0.22);
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .promo-banner { margin-top: 100px; font-size: 1.05rem; }
+}
+
+@media (max-width: 480px) {
+  .promo-banner { margin-top: 84px; margin-left: 12px; margin-right: 12px; font-size: 1rem; }
+}
+
+.promo-banner .promo-amount {
+  color: #d40124;
+  font-size: 1.6rem;
+  font-weight: 900;
+  display: inline-block;
+  animation: promoAmountPulse 1.3s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255,255,255,0.75), 0 2px 8px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 768px) { .promo-banner .promo-amount { font-size: 1.45rem; } }
+@media (max-width: 480px) { .promo-banner .promo-amount { font-size: 1.35rem; } }
+
+@keyframes promoAmountPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
 /* 主横幅 */
 .hero {
-    padding: 168px 36px 80px;
+    padding: 136px 36px 72px;
     background: #ffffff;
     color: #000000;
     position: relative;
@@ -313,11 +357,11 @@ body {
 }
 
 @media (max-width: 768px) {
-  .hero { padding-top: 110px; }
+  .hero { padding-top: 96px; }
 }
 
 @media (max-width: 480px) {
-  .hero { padding-top: 96px; }
+  .hero { padding-top: 84px; }
 }
 
 .hero-container {
@@ -1512,3 +1556,50 @@ body {
 .footer-divider { height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 12px; }
 .footer-copy { color: rgba(255,255,255,0.85); }
 .footer-subtext { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+.promo-banner:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+  filter: brightness(1.03);
+}
+.promo-disclaimer {
+  margin: 4px 16px 8px;
+  font-size: 0.82rem;
+  color: #6f6f6f;
+  text-align: center;
+  font-weight: 400;
+}
+
+.cashback-badge {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1100;
+  background: #ffffff;
+  color: #111111;
+  border-radius: 999px;
+  padding: 10px 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.cashback-badge small {
+  display: block;
+  font-size: 0.72rem;
+  color: #6f6f6f;
+  margin-top: 2px;
+}
+.cashback-badge:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.2);
+  filter: brightness(1.03);
+}
+@media (max-width: 480px) {
+  .cashback-badge { padding: 9px 12px; font-size: 0.95rem; }
+  .cashback-badge small { font-size: 0.7rem; }
+}
+@media (max-width: 360px) {
+  .cashback-badge { right: 12px; bottom: 12px; padding: 8px 10px; font-size: 0.9rem; }
+  .cashback-badge small { display: none; }
+  .promo-disclaimer { font-size: 0.78rem; }
+}
